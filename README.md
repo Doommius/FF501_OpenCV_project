@@ -9,7 +9,8 @@ Hvis du mener dine ændringer er stabile kan du lave et pull-request til master.
 Ingen IDE-filer vil blive tilladt. Hold alt det på din egen computer, da paths ofte er anderledes fra OS og computer til computer.
 
 Desuden arbejder folk ofte ikke i samme IDE, hvilket kun yderligere giver grund til ikke at smide IDE filer ind på repo.
-
+Hvis du bruger visual studio skal du bruge https://visualstudio.github.com/
+---
 Ahmad Mohamad Abdo - aabdo15@student.sdu.dk
 
 Kristoffer Abell - krabe14@student.sdu.dk
@@ -21,5 +22,5 @@ Mark Wolff Jervelund - mjerv15@student.sdu.dk
 Mikkel Pilegaard - mipil15@student.sdu.dk
 
 Janosa Vijayathurai - javij15@student.sdu.dk
-
+---
 Mail list : aabdo15@student.sdu.dk; krabe14@student.sdu.dk; timch15@student.sdu.dk; mjerv15@student.sdu.dk; mipil15@student.sdu.dk; javij15@student.sdu.dk

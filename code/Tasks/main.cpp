@@ -9,7 +9,7 @@ using namespace std;
 using namespace cv;
 
 const char* winName = "canny";
-int maxThres = 300;
+int maxThres = 30;
 
 void on_trackbar(int, void *)
 {

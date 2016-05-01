@@ -46,6 +46,7 @@ int main(int argc, char** argv ) {
         Mat draw = Mat::zeros(frame.size(), CV_8UC3); //draw to this matrix
         for(int i = 0 ; i < contours.size(); i++)
         {
+
             //choose a random color
             Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255) );
             drawContours( draw, contours, i, color, CV_FILLED, 8, hierarchy );

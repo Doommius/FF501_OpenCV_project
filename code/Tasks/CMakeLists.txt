@@ -10,10 +10,12 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 
 add_executable(task_cv main.cpp)
 add_executable(contours contours.cpp)
+add_executable(task2 task2.cpp)
 
 # add libs you need
-set(OpenCV_LIBS opencv_core opencv_imgproc opencv_highgui opencv_imgcodecs opencv_videoio opencv_photo)
+set(OpenCV_LIBS opencv_core opencv_imgproc opencv_highgui opencv_imgcodecs opencv_videoio opencv_photo opencv_features2d)
 
 # linking
 target_link_libraries(task_cv ${OpenCV_LIBS})
 target_link_libraries(contours ${OpenCV_LIBS})
+target_link_libraries(task2 ${OpenCV_LIBS})

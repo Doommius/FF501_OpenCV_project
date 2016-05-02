@@ -21,9 +21,6 @@
     <ClCompile Include="2nd_week.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MatchTemp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FAST-doesn%27t_work.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

@@ -24,5 +24,8 @@
     <ClCompile Include="FAST-doesn%27t_work.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MatchTemp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

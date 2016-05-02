@@ -132,6 +132,7 @@
     <ClCompile Include="1st_week.cpp" />
     <ClCompile Include="2nd_week.cpp" />
     <ClCompile Include="FAST-doesn%27t_work.cpp" />
+    <ClCompile Include="MatchTemp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

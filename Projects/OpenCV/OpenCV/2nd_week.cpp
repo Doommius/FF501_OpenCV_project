@@ -60,7 +60,6 @@ void srcContour(){
 	Canny(src_gray, canny_output, thresh, thresh * 2, 3);
 
 	findContours(canny_output, contours, CV_RETR_TREE, CV_CHAIN_APPROX_NONE);
-	vector<Mat> subregions;
 	double smallest = 200;
 	Mat contourRegionSmall;
 	for (int i = 0; i < contours.size(); i++) {
@@ -73,8 +72,6 @@ void srcContour(){
 		Mat imageROI;
 		src_gray.copyTo(imageROI, mask);
 		contourRegion = imageROI(roi);
-		//subregions.push_back(contourRegion);
-		//namedWindow("Contours", CV_WINDOW_AUTOSIZE);
 		
 		//http://docs.opencv.org/3.1.0/d5/d45/tutorial_py_contours_more_functions.html#gsc.tab=0
 		double match = matchShapes(maskRef, contourRegion, 1, 0.0);
@@ -85,9 +82,6 @@ void srcContour(){
 			}
 		}
 	}
-	/*cout << i << endl;
-	cout << roi << endl;
-	cout << match << endl;*/
 	string url = "C:\\Users\\zlyza\\Desktop\\Biggest Project\\images\\contours\\";
 	std::string fileName = url + std::to_string(smallest) + ".jpg";
 	imwrite(fileName, contourRegionSmall);

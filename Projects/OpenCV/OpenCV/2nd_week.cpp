@@ -45,7 +45,6 @@ void srcRefContour() {
 	drawContours(maskRef, contoursRef, 0, Scalar(255), CV_FILLED);
 
 	//imshow("df", maskRef);
-	//return maskRef;
 }
 
 void srcContour(){
@@ -64,7 +63,6 @@ void srcContour(){
 	vector<Mat> subregions;
 	double smallest = 200;
 	Mat contourRegionSmall;
-	//imshow("Source",canny_output);
 	for (int i = 0; i < contours.size(); i++) {
 		Rect roi = boundingRect(contours[i]);
 		
@@ -93,5 +91,4 @@ void srcContour(){
 	string url = "C:\\Users\\zlyza\\Desktop\\Biggest Project\\images\\contours\\";
 	std::string fileName = url + std::to_string(smallest) + ".jpg";
 	imwrite(fileName, contourRegionSmall);
-	imshow("Contours", contourRegion);
 }

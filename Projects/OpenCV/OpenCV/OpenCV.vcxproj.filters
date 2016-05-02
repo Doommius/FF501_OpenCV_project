@@ -18,16 +18,13 @@
     <ClCompile Include="1st_week.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="contourVid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="2nd_week.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FAST.cpp">
+    <ClCompile Include="MatchTemp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MatchTemp.cpp">
+    <ClCompile Include="FAST-doesn%27t_work.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

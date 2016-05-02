@@ -13,17 +13,21 @@ int thresh = 100;
 int max_thresh = 255;
 RNG rng(12345);
 Mat maskRef;
+string contourDir = "C:\\Users\\zlyza\\Desktop\\Biggest Project\\images\\contours\\";
+string dir = "C:\\Users\\zlyza\\Desktop\\Biggest Project\\images\\";
+int filesNum = 12;
 
 /// Function header
 void srcContour();
 void srcRefContour();
 
 int main(){
-	srcRef = imread("C:\\Users\\zlyza\\Desktop\\Biggest Project\\images\\reference.jpg");
+	srcRef = imread(dir+"\\reference.jpg");
 	cvtColor(srcRef, srcRef, CV_BGR2GRAY);
 	srcRefContour();
-	for (int j = 1; j < 13; j++) {
-		string url = std::string("C:\\Users\\zlyza\\Desktop\\Biggest Project\\images\\" + std::to_string(j) + ".JPG");
+	for (int j = 1; j <= filesNum; j++) {
+		//string url = dir +"1\\1 ("+ std::to_string(j) + ").JPG";
+		string url = dir + std::to_string(j) + ".JPG";
 		cout << url << endl;
 		src = imread(url);
 		cvtColor(src, src_gray, CV_BGR2GRAY);
@@ -59,6 +63,9 @@ void srcContour(){
 	/*without blur*/
 	Canny(src_gray, canny_output, thresh, thresh * 2, 3);
 
+	/*CV_RETR_CCOMP retrieves all of the contours and organizes them into a two-level hierarchy. At the top level, there are external boundaries of the components. 
+	At the second level, there are boundaries of the holes. If there is another contour inside a hole of a connected component, it is still put at the top level.
+	CV_RETR_TREE retrieves all of the contours and reconstructs a full hierarchy of nested contours.*/
 	findContours(canny_output, contours, CV_RETR_TREE, CV_CHAIN_APPROX_NONE);
 	double smallest = 200;
 	Mat contourRegionSmall;
@@ -75,6 +82,11 @@ void srcContour(){
 		
 		//http://docs.opencv.org/3.1.0/d5/d45/tutorial_py_contours_more_functions.html#gsc.tab=0
 		double match = matchShapes(maskRef, contourRegion, 1, 0.0);
+		/*for saving all*/
+		//std::string fileName = contourDir + std::to_string(match) + ".jpg";
+		//imwrite(fileName, contourRegion);
+
+		/*for saving best match*/
 		if (match < 1 && (roi.width > 150 && roi.height > 30)) {
 			if (match < smallest) {
 				smallest = match;
@@ -82,7 +94,6 @@ void srcContour(){
 			}
 		}
 	}
-	string url = "C:\\Users\\zlyza\\Desktop\\Biggest Project\\images\\contours\\";
-	std::string fileName = url + std::to_string(smallest) + ".jpg";
+	std::string fileName = contourDir + std::to_string(smallest) + ".jpg";
 	imwrite(fileName, contourRegionSmall);
 }

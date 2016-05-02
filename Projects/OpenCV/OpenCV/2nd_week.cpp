@@ -56,6 +56,11 @@ void srcContour(){
 	vector<vector<Point> > contours;
 	//vector<Vec4i> hierarchy;
 
+	/*with blur*/
+	//GaussianBlur(src_gray, canny_output, Size(7, 7), 1.5, 1.5);
+	//Canny(canny_output, canny_output, thresh, thresh * 2, 3);
+
+	/*without blur*/
 	Canny(src_gray, canny_output, thresh, thresh * 2, 3);
 
 	/*CV_RETR_CCOMP retrieves all of the contours and organizes them into a two-level hierarchy. At the top level, there are external boundaries of the components. 

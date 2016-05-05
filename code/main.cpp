@@ -8,39 +8,42 @@
 using namespace std;
 using namespace cv;
 
-const char* winName = "canny";
-int maxThres = 30;
-
-void on_trackbar(int, void *)
+namespace main
 {
+	const char* winName = "canny";
+	int maxThres = 30;
 
-}
+	void on_trackbar(int, void *)
+	{
 
-int main(int argc, char** argv ) {
-    VideoCapture cap;
+	}
 
-    namedWindow(winName, WINDOW_AUTOSIZE);
-    createTrackbar("Threshold 2", winName, &maxThres, 150);
+	int main(int argc, char** argv) {
+		VideoCapture cap;
 
-    if (!cap.open(0)) return 0;
-    for (;;) {
-        Mat frame, gray, edges, dst;
-        cap >> frame;
+		namedWindow(winName, WINDOW_AUTOSIZE);
+		createTrackbar("Threshold 2", winName, &maxThres, 150);
 
-        frame.copyTo(gray);
-        //cvtColor(gray, gray, CV_BGR2GRAY);
+		if (!cap.open(0)) return 0;
+		for (;;) {
+			Mat frame, gray, edges, dst;
+			cap >> frame;
 
-        //blur(gray, gray, Size(15, 15));
-        GaussianBlur(gray, gray, Size(7, 7), 1.5);
+			frame.copyTo(gray);
+			//cvtColor(gray, gray, CV_BGR2GRAY);
 
-        Canny(gray, edges, maxThres, maxThres * 2, 3);
+			//blur(gray, gray, Size(15, 15));
+			GaussianBlur(gray, gray, Size(7, 7), 1.5);
 
-        dst = Scalar::all(0);
+			Canny(gray, edges, maxThres, maxThres * 2, 3);
 
-        frame.copyTo(dst, edges);
+			dst = Scalar::all(0);
 
-        if (frame.empty()) break;
-        imshow(winName, edges);
-        if (waitKey(1) == 27) break;
-    }
+			frame.copyTo(dst, edges);
+
+			if (frame.empty()) break;
+			imshow(winName, edges);
+			if (waitKey(1) == 27) break;
+		}
+	}
 }

@@ -10,49 +10,51 @@
 using namespace std;
 using namespace cv;
 
-const char* winName = "contour";
-RNG rng(12345);
 
-int main(int argc, char** argv ) {
-    VideoCapture cap;
+	const char* winName = "contour";
+	RNG rng(12345);
 
-    //create a window which auto sizes
-    namedWindow(winName, WINDOW_AUTOSIZE);
+	int main(int argc, char** argv) {
+		VideoCapture cap;
 
-    if (!cap.open(0)) //open the first capture device, usually the webcam, returns whether successful
-        return 0; //if not successful, quit the program
-    for (;;) //infinite loop
-    {
-        Mat frame, dst; //Matrices to store data
-        cap >> frame; //take a frame from the capture device and put it in 'frame'
-        if (frame.empty()) break; //if the frame was empty for some reason, quit the program
+		//create a window which auto sizes
+		namedWindow(winName, WINDOW_AUTOSIZE);
 
-        //make 'dst' a 'frame.rows' by 'frame.cols' matrix. Choose the color space to be binary
-        dst = Mat::zeros(frame.rows, frame.cols, CV_8UC1);
+		if (!cap.open(0)) //open the first capture device, usually the webcam, returns whether successful
+			return 0; //if not successful, quit the program
+		for (;;) //infinite loop
+		{
+			Mat frame, dst; //Matrices to store data
+			cap >> frame; //take a frame from the capture device and put it in 'frame'
+			if (frame.empty()) break; //if the frame was empty for some reason, quit the program
 
-        //do operations to the captured frame
-        cvtColor(frame, frame, CV_BGR2GRAY); //convert the color space to gray
-        GaussianBlur(frame, frame, Size(7, 7), 1.5); //do some blurring
-        Canny(frame, frame, 30, 60); //and then some edge detection
+			//make 'dst' a 'frame.rows' by 'frame.cols' matrix. Choose the color space to be binary
+			dst = Mat::zeros(frame.rows, frame.cols, CV_8UC1);
 
-        vector<vector<Point> > contours; //variables to store the contour points
-        vector<Vec4i> hierarchy; //the hierarchy of the contours
+			//do operations to the captured frame
+			cvtColor(frame, frame, CV_BGR2GRAY); //convert the color space to gray
+			GaussianBlur(frame, frame, Size(7, 7), 1.5); //do some blurring
+			Canny(frame, frame, 30, 90); //and then some edge detection
 
-        //find the contours and fill in their hierarchy
-        findContours( frame, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE );
+			vector<vector<Point> > contours; //variables to store the contour points
+			vector<Vec4i> hierarchy; //the hierarchy of the contours
 
-        // iterate through all the top-level contours,
-        // draw each connected component with its own random color
-        Mat draw = Mat::zeros(frame.size(), CV_8UC3); //draw to this matrix
-        for(int i = 0 ; i < contours.size(); i++)
-        {
+			//find the contours and fill in their hierarchy
+			findContours(frame, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE);
 
-            //choose a random color
-            Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255) );
-            drawContours( draw, contours, i, color, CV_FILLED, 8, hierarchy );
-        }
+			// iterate through all the top-level contours,
+			// draw each connected component with its own random color
+			Mat draw = Mat::zeros(frame.size(), CV_8UC3); //draw to this matrix
+			for (int i = 0; i < contours.size(); i++)
+			{
 
-        imshow(winName, draw); //show the drawing
-        if (waitKey(1) == 27) break; //quit the program if the 'Esc' key is pressed (int code 27)
-    }
-}
+				//choose a random color
+				//Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+				Scalar color = Scalar(0, 255, 0);
+				drawContours(draw, contours, i, color, -1, 8, hierarchy);
+			}
+
+			imshow(winName, draw); //show the drawing
+			if (waitKey(1) == 27) break; //quit the program if the 'Esc' key is pressed (int code 27)
+		}
+	}

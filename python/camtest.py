@@ -18,7 +18,7 @@ while(True):
     #find contours
     img, contours, h = cv2.findContours(canny, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
     for cnt in range(0, len(contours)):
-        cv2.drawContours(dst, contours, cnt, (rng.random(), rng.random(), rng.random()), -1, 1, h)
+        cv2.drawContours(dst, contours, cnt, (rng.random(), rng.random(), rng.random()), cv2.FILLED, 1, h)
 
     cv2.imshow(winName, dst)
 

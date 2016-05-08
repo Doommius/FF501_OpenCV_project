@@ -16,7 +16,6 @@ outIndex = 0
 for name in imageNames:
     images.append(cv2.imread("images\\" + name))
 
-
 # define what happens on the trackbar
 def onImage(index):
     global outIndex

@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+
 import random as rng
 
 imageNames = ["2715DTZ.jpg", "3028BYS.JPG", "3154FFY.JPG",
@@ -16,13 +17,26 @@ outIndex = 0
 for name in imageNames:
     images.append(cv2.imread("images\\" + name))
 
+
+def auto_canny(image, sigma=0.33):
+    # compute the median of the single channel pixel intensities
+    v = np.median(image)
+    # apply automatic Canny edge detection using the computed median
+    lower = int(max(0, (1.0 - sigma) * v))
+    upper = int(min(255, (1.0 + sigma) * v))
+    edged = cv2.Canny(image, lower, upper)
+    # return the edged image
+    return edged
+
+
 # define what happens on the trackbar
 def onImage(index):
     global outIndex
     img = images[index].copy()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (7, 7), 1.5)
-    canny = cv2.Canny(blur, 80, 80 * 3)
+    #canny = cv2.Canny(blur, 80, 80 * 3)
+    canny = auto_canny(blur)
 
     # find contours
     conImg, contours, h = cv2.findContours(canny, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
@@ -33,11 +47,11 @@ def onImage(index):
         # use fillPoly instead of fillConvexPoly and pack into array, because some polys are non-convex
         #cv2.fillPoly(img, [approxPoly], (0, 255, 0), cv2.LINE_8)
 
-        if cv2.contourArea(approxPoly) > 50: #only do this for big enough areas
-            print (outIndex, cv2.contourArea(approxPoly))
+        if cv2.contourArea(approxPoly) > 50:  # only do this for big enough areas
+            #print (outIndex, cv2.contourArea(approxPoly))
             mask = np.zeros(img.shape, np.uint8)
 
-            #draw the region extracted
+            # draw the region extracted
             rect = cv2.minAreaRect(approxPoly)
             rectPoints = np.array(cv2.boxPoints(rect), np.int32)
             rectPoints = rectPoints.reshape((-1, 1, 2))
@@ -47,7 +61,6 @@ def onImage(index):
             print(cv2.imwrite("images\\contours\\" + str(outIndex) + ".jpg", out))
             print(cv2.imwrite("images\\mask\\" + str(outIndex) + ".jpg", mask))
             outIndex += 1
-
 
     cv2.imshow(winName, img)
 

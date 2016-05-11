@@ -48,7 +48,6 @@ def onImage(index):
             print(cv2.imwrite("images\\mask\\" + str(outIndex) + ".jpg", mask))
             outIndex += 1
 
-
     cv2.imshow(winName, img)
 
 

@@ -1,0 +1,9 @@
+0.jpg:  	 amount of keypoints = 3
+1.jpg:  	 amount of keypoints = 3
+2.jpg:  	 amount of keypoints = 3
+3.jpg:  	 amount of keypoints = 3
+4.jpg:  	 amount of keypoints = 4
+5.jpg:  	 amount of keypoints = 2
+train?: 0
+row: 6
+col: 320 => 64*numOfFeaturePoints

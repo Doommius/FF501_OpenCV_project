@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E1E7DF4B-35BE-40D9-A54C-D6CA13724C2D}</ProjectGuid>
+    <RootNamespace>OpenCVX</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\OpenCV\build\include;C:\OpenCV\build\include\opencv2;C:\OpenCV\my_build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\OpenCV\my_build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_bgsegm310d.lib;opencv_aruco310d.lib;opencv_xphoto310d.lib;opencv_xobjdetect310d.lib;opencv_ximgproc310d.lib;opencv_xfeatures2d310d.lib;opencv_videostab310d.lib;opencv_videoio310d.lib;opencv_video310d.lib;opencv_ts310d.lib;opencv_tracking310d.lib;opencv_text310d.lib;opencv_surface_matching310d.lib;opencv_superres310d.lib;opencv_structured_light310d.lib;opencv_stitching310d.lib;opencv_stereo310d.lib;opencv_shape310d.lib;opencv_saliency310d.lib;opencv_rgbd310d.lib;opencv_reg310d.lib;opencv_plot310d.lib;opencv_photo310d.lib;opencv_optflow310d.lib;opencv_objdetect310d.lib;opencv_ml310d.lib;opencv_line_descriptor310d.lib;opencv_imgproc310d.lib;opencv_imgcodecs310d.lib;opencv_highgui310d.lib;opencv_hdf310d.lib;opencv_fuzzy310d.lib;opencv_flann310d.lib;opencv_features2d310d.lib;opencv_face310d.lib;opencv_dpm310d.lib;opencv_datasets310d.lib;opencv_core310d.lib;opencv_ccalib310d.lib;opencv_calib3d310d.lib;opencv_bioinspired310d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="1st_week.cpp" />
+    <ClCompile Include="2nd_week.cpp" />
+    <ClCompile Include="SVM.cpp" />
+    <ClCompile Include="SVMSend.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="images\0.jpg" />
+    <Image Include="images\1.jpg" />
+    <Image Include="images\10.jpg" />
+    <Image Include="images\100.jpg" />
+    <Image Include="images\101.jpg" />
+    <Image Include="images\102.jpg" />
+    <Image Include="images\103.jpg" />
+    <Image Include="images\104.jpg" />
+    <Image Include="images\105.jpg" />
+    <Image Include="images\106.jpg" />
+    <Image Include="images\107.jpg" />
+    <Image Include="images\108.jpg" />
+    <Image Include="images\109.jpg" />
+    <Image Include="images\11.jpg" />
+    <Image Include="images\110.jpg" />
+    <Image Include="images\111.jpg" />
+    <Image Include="images\112.jpg" />
+    <Image Include="images\113.jpg" />
+    <Image Include="images\114.jpg" />
+    <Image Include="images\115.jpg" />
+    <Image Include="images\116.jpg" />
+    <Image Include="images\117.jpg" />
+    <Image Include="images\118.jpg" />
+    <Image Include="images\119.jpg" />
+    <Image Include="images\12.jpg" />
+    <Image Include="images\120.jpg" />
+    <Image Include="images\121.jpg" />
+    <Image Include="images\122.jpg" />
+    <Image Include="images\123.jpg" />
+    <Image Include="images\124.jpg" />
+    <Image Include="images\125.jpg" />
+    <Image Include="images\126.jpg" />
+    <Image Include="images\127.jpg" />
+    <Image Include="images\128.jpg" />
+    <Image Include="images\129.jpg" />
+    <Image Include="images\13.jpg" />
+    <Image Include="images\130.jpg" />
+    <Image Include="images\131.jpg" />
+    <Image Include="images\132.jpg" />
+    <Image Include="images\133.jpg" />
+    <Image Include="images\134.jpg" />
+    <Image Include="images\135.jpg" />
+    <Image Include="images\136.jpg" />
+    <Image Include="images\137.jpg" />
+    <Image Include="images\138.jpg" />
+    <Image Include="images\139.jpg" />
+    <Image Include="images\14.jpg" />
+    <Image Include="images\140.jpg" />
+    <Image Include="images\141.jpg" />
+    <Image Include="images\142.jpg" />
+    <Image Include="images\143.jpg" />
+    <Image Include="images\144.jpg" />
+    <Image Include="images\145.jpg" />
+    <Image Include="images\146.jpg" />
+    <Image Include="images\147.jpg" />
+    <Image Include="images\148.jpg" />
+    <Image Include="images\149.jpg" />
+    <Image Include="images\15.jpg" />
+    <Image Include="images\150.jpg" />
+    <Image Include="images\151.jpg" />
+    <Image Include="images\152.jpg" />
+    <Image Include="images\153.jpg" />
+    <Image Include="images\154.jpg" />
+    <Image Include="images\155.jpg" />
+    <Image Include="images\156.jpg" />
+    <Image Include="images\157.jpg" />
+    <Image Include="images\158.jpg" />
+    <Image Include="images\159.jpg" />
+    <Image Include="images\16.jpg" />
+    <Image Include="images\160.jpg" />
+    <Image Include="images\161.jpg" />
+    <Image Include="images\162.jpg" />
+    <Image Include="images\163.jpg" />
+    <Image Include="images\164.jpg" />
+    <Image Include="images\165.jpg" />
+    <Image Include="images\166.jpg" />
+    <Image Include="images\167.jpg" />
+    <Image Include="images\168.jpg" />
+    <Image Include="images\169.jpg" />
+    <Image Include="images\17.jpg" />
+    <Image Include="images\170.jpg" />
+    <Image Include="images\171.jpg" />
+    <Image Include="images\172.jpg" />
+    <Image Include="images\173.jpg" />
+    <Image Include="images\174.jpg" />
+    <Image Include="images\175.jpg" />
+    <Image Include="images\176.jpg" />
+    <Image Include="images\177.jpg" />
+    <Image Include="images\178.jpg" />
+    <Image Include="images\179.jpg" />
+    <Image Include="images\18.jpg" />
+    <Image Include="images\180.jpg" />
+    <Image Include="images\181.jpg" />
+    <Image Include="images\182.jpg" />
+    <Image Include="images\183.jpg" />
+    <Image Include="images\184.jpg" />
+    <Image Include="images\185.jpg" />
+    <Image Include="images\186.jpg" />
+    <Image Include="images\187.jpg" />
+    <Image Include="images\188.jpg" />
+    <Image Include="images\189.jpg" />
+    <Image Include="images\19.jpg" />
+    <Image Include="images\190.jpg" />
+    <Image Include="images\191.jpg" />
+    <Image Include="images\192.jpg" />
+    <Image Include="images\193.jpg" />
+    <Image Include="images\194.jpg" />
+    <Image Include="images\195.jpg" />
+    <Image Include="images\196.jpg" />
+    <Image Include="images\197.jpg" />
+    <Image Include="images\198.jpg" />
+    <Image Include="images\199.jpg" />
+    <Image Include="images\2.jpg" />
+    <Image Include="images\20.jpg" />
+    <Image Include="images\200.jpg" />
+    <Image Include="images\201.jpg" />
+    <Image Include="images\202.jpg" />
+    <Image Include="images\203.jpg" />
+    <Image Include="images\204.jpg" />
+    <Image Include="images\205.jpg" />
+    <Image Include="images\206.jpg" />
+    <Image Include="images\207.jpg" />
+    <Image Include="images\208.jpg" />
+    <Image Include="images\209.jpg" />
+    <Image Include="images\21.jpg" />
+    <Image Include="images\210.jpg" />
+    <Image Include="images\211.jpg" />
+    <Image Include="images\212.jpg" />
+    <Image Include="images\213.jpg" />
+    <Image Include="images\214.jpg" />
+    <Image Include="images\215.jpg" />
+    <Image Include="images\216.jpg" />
+    <Image Include="images\217.jpg" />
+    <Image Include="images\218.jpg" />
+    <Image Include="images\219.jpg" />
+    <Image Include="images\22.jpg" />
+    <Image Include="images\220.jpg" />
+    <Image Include="images\221.jpg" />
+    <Image Include="images\222.jpg" />
+    <Image Include="images\223.jpg" />
+    <Image Include="images\224.jpg" />
+    <Image Include="images\225.jpg" />
+    <Image Include="images\226.jpg" />
+    <Image Include="images\227.jpg" />
+    <Image Include="images\228.jpg" />
+    <Image Include="images\229.jpg" />
+    <Image Include="images\23.jpg" />
+    <Image Include="images\230.jpg" />
+    <Image Include="images\231.jpg" />
+    <Image Include="images\232.jpg" />
+    <Image Include="images\233.jpg" />
+    <Image Include="images\234.jpg" />
+    <Image Include="images\235.jpg" />
+    <Image Include="images\236.jpg" />
+    <Image Include="images\237.jpg" />
+    <Image Include="images\238.jpg" />
+    <Image Include="images\239.jpg" />
+    <Image Include="images\24.jpg" />
+    <Image Include="images\240.jpg" />
+    <Image Include="images\241.jpg" />
+    <Image Include="images\242.jpg" />
+    <Image Include="images\243.jpg" />
+    <Image Include="images\244.jpg" />
+    <Image Include="images\245.jpg" />
+    <Image Include="images\246.jpg" />
+    <Image Include="images\247.jpg" />
+    <Image Include="images\248.jpg" />
+    <Image Include="images\249.jpg" />
+    <Image Include="images\25.jpg" />
+    <Image Include="images\250.jpg" />
+    <Image Include="images\251.jpg" />
+    <Image Include="images\252.jpg" />
+    <Image Include="images\253.jpg" />
+    <Image Include="images\254.jpg" />
+    <Image Include="images\255.jpg" />
+    <Image Include="images\256.jpg" />
+    <Image Include="images\257.jpg" />
+    <Image Include="images\258.jpg" />
+    <Image Include="images\259.jpg" />
+    <Image Include="images\26.jpg" />
+    <Image Include="images\260.jpg" />
+    <Image Include="images\261.jpg" />
+    <Image Include="images\262.jpg" />
+    <Image Include="images\263.jpg" />
+    <Image Include="images\264.jpg" />
+    <Image Include="images\265.jpg" />
+    <Image Include="images\266.jpg" />
+    <Image Include="images\267.jpg" />
+    <Image Include="images\268.jpg" />
+    <Image Include="images\269.jpg" />
+    <Image Include="images\27.jpg" />
+    <Image Include="images\270.jpg" />
+    <Image Include="images\271.jpg" />
+    <Image Include="images\272.jpg" />
+    <Image Include="images\273.jpg" />
+    <Image Include="images\274.jpg" />
+    <Image Include="images\275.jpg" />
+    <Image Include="images\276.jpg" />
+    <Image Include="images\277.jpg" />
+    <Image Include="images\278.jpg" />
+    <Image Include="images\279.jpg" />
+    <Image Include="images\28.jpg" />
+    <Image Include="images\280.jpg" />
+    <Image Include="images\281.jpg" />
+    <Image Include="images\282.jpg" />
+    <Image Include="images\283.jpg" />
+    <Image Include="images\29.jpg" />
+    <Image Include="images\3.jpg" />
+    <Image Include="images\30.jpg" />
+    <Image Include="images\31.jpg" />
+    <Image Include="images\32.jpg" />
+    <Image Include="images\33.jpg" />
+    <Image Include="images\34.jpg" />
+    <Image Include="images\35.jpg" />
+    <Image Include="images\36.jpg" />
+    <Image Include="images\37.jpg" />
+    <Image Include="images\38.jpg" />
+    <Image Include="images\39.jpg" />
+    <Image Include="images\4.jpg" />
+    <Image Include="images\40.jpg" />
+    <Image Include="images\41.jpg" />
+    <Image Include="images\42.jpg" />
+    <Image Include="images\43.jpg" />
+    <Image Include="images\44.jpg" />
+    <Image Include="images\45.jpg" />
+    <Image Include="images\46.jpg" />
+    <Image Include="images\47.jpg" />
+    <Image Include="images\48.jpg" />
+    <Image Include="images\49.jpg" />
+    <Image Include="images\5.jpg" />
+    <Image Include="images\50.jpg" />
+    <Image Include="images\51.jpg" />
+    <Image Include="images\52.jpg" />
+    <Image Include="images\53.jpg" />
+    <Image Include="images\54.jpg" />
+    <Image Include="images\55.jpg" />
+    <Image Include="images\56.jpg" />
+    <Image Include="images\57.jpg" />
+    <Image Include="images\58.jpg" />
+    <Image Include="images\59.jpg" />
+    <Image Include="images\6.jpg" />
+    <Image Include="images\60.jpg" />
+    <Image Include="images\61.jpg" />
+    <Image Include="images\62.jpg" />
+    <Image Include="images\63.jpg" />
+    <Image Include="images\64.jpg" />
+    <Image Include="images\65.jpg" />
+    <Image Include="images\66.jpg" />
+    <Image Include="images\67.jpg" />
+    <Image Include="images\68.jpg" />
+    <Image Include="images\69.jpg" />
+    <Image Include="images\7.jpg" />
+    <Image Include="images\70.jpg" />
+    <Image Include="images\71.jpg" />
+    <Image Include="images\72.jpg" />
+    <Image Include="images\73.jpg" />
+    <Image Include="images\74.jpg" />
+    <Image Include="images\75.jpg" />
+    <Image Include="images\76.jpg" />
+    <Image Include="images\77.jpg" />
+    <Image Include="images\78.jpg" />
+    <Image Include="images\79.jpg" />
+    <Image Include="images\8.jpg" />
+    <Image Include="images\80.jpg" />
+    <Image Include="images\81.jpg" />
+    <Image Include="images\82.jpg" />
+    <Image Include="images\83.jpg" />
+    <Image Include="images\84.jpg" />
+    <Image Include="images\85.jpg" />
+    <Image Include="images\86.jpg" />
+    <Image Include="images\87.jpg" />
+    <Image Include="images\88.jpg" />
+    <Image Include="images\89.jpg" />
+    <Image Include="images\9.jpg" />
+    <Image Include="images\90.jpg" />
+    <Image Include="images\91.jpg" />
+    <Image Include="images\92.jpg" />
+    <Image Include="images\93.jpg" />
+    <Image Include="images\94.jpg" />
+    <Image Include="images\95.jpg" />
+    <Image Include="images\96.jpg" />
+    <Image Include="images\97.jpg" />
+    <Image Include="images\98.jpg" />
+    <Image Include="images\99.jpg" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

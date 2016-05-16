@@ -1,0 +1,888 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="images">
+      <UniqueIdentifier>{44f79e41-1dc8-48ed-818f-4f61d307f21a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SVMSend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="1st_week.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="2nd_week.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="images\0.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\1.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\2.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\3.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\4.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\5.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\6.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\7.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\8.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\9.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\10.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\11.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\12.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\13.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\14.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\15.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\16.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\17.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\18.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\19.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\20.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\21.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\22.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\23.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\24.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\25.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\26.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\27.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\28.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\29.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\30.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\31.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\32.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\33.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\34.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\35.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\36.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\37.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\38.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\39.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\40.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\41.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\42.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\43.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\44.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\45.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\46.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\47.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\48.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\49.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\50.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\51.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\52.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\53.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\54.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\55.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\56.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\57.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\58.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\59.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\60.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\61.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\62.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\63.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\64.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\65.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\66.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\67.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\68.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\69.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\70.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\71.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\72.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\73.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\74.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\75.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\76.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\77.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\78.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\79.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\80.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\81.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\82.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\83.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\84.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\85.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\86.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\87.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\88.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\89.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\90.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\91.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\92.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\93.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\94.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\95.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\96.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\97.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\98.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\99.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\100.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\101.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\102.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\103.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\104.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\105.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\106.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\107.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\108.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\109.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\110.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\111.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\112.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\113.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\114.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\115.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\116.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\117.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\118.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\119.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\120.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\121.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\122.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\123.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\124.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\125.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\126.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\127.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\128.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\129.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\130.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\131.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\132.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\133.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\134.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\135.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\136.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\137.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\138.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\139.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\140.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\141.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\142.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\143.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\144.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\145.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\146.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\147.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\148.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\149.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\150.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\151.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\152.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\153.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\154.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\155.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\156.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\157.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\158.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\159.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\160.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\161.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\162.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\163.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\164.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\165.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\166.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\167.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\168.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\169.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\170.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\171.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\172.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\173.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\174.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\175.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\176.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\177.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\178.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\179.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\180.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\181.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\182.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\183.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\184.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\185.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\186.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\187.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\188.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\189.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\190.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\191.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\192.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\193.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\194.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\195.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\196.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\197.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\198.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\199.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\200.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\201.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\202.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\203.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\204.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\205.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\206.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\207.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\208.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\209.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\210.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\211.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\212.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\213.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\214.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\215.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\216.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\217.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\218.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\219.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\220.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\221.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\222.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\223.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\224.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\225.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\226.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\227.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\228.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\229.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\230.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\231.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\232.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\233.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\234.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\235.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\236.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\237.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\238.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\239.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\240.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\241.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\242.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\243.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\244.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\245.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\246.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\247.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\248.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\249.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\250.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\251.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\252.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\253.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\254.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\255.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\256.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\257.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\258.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\259.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\260.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\261.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\262.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\263.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\264.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\265.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\266.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\267.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\268.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\269.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\270.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\271.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\272.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\273.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\274.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\275.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\276.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\277.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\278.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\279.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\280.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\281.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\282.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\283.jpg">
+      <Filter>images</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

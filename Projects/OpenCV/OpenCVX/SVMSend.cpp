@@ -57,6 +57,7 @@ int main() {
 
 /*testMikkel*/		//{ 12, 38, 39, 60, 61, 77, 78, 98, 99, 120, 122, 155, 175, 176, 208, 247, 278, 279 }
 /*testMorteza*/		//{ 7, 13, 31, 42, 51, 62, 79, 92, 111, 157 }
+/*testMM*/		//{ 4, 14, 24,   }
 int testStart = 81;
 int testStop = 161/*numOfContours*/;
 int numOfContoursTest = testStop-testStart;

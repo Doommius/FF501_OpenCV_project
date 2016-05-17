@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="1st_week.cpp" />
     <ClCompile Include="2nd_week.cpp" />
+    <ClCompile Include="Morteza.cpp" />
     <ClCompile Include="SVM.cpp" />
     <ClCompile Include="SVMSend.cpp" />
   </ItemGroup>

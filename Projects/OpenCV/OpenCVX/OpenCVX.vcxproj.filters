@@ -30,6 +30,9 @@
     <ClCompile Include="2nd_week.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Morteza.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="images\0.jpg">

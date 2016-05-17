@@ -1,2 +1,14 @@
-[0;
- 0]
+train?: 1
+labelsMat row: 80
+0 1
+1 0
+0 1
+1 0
+0 1
+1 0
+0 1
+0 1
+0 1
+71 out of 80
+The training machine got 88.75% correct 
+results row: 80

@@ -38,10 +38,10 @@ def trainSVM():
         #reduce the mask as to not detect corners
 
         kp, des = getDescriptors(img, mask)
-
-        for descriptor in des:
-            data.append(descriptor)
-            responses.append([1])
+        if des is not None:
+            for descriptor in des:
+                data.append(descriptor)
+                responses.append([1])
 
 
     for file in os.listdir("images\\contours"):
@@ -63,7 +63,7 @@ def trainSVM():
     svm.train(data, cv2.ml.ROW_SAMPLE, responses)
 
     globalTrainedSVM = svm
-    svm.save('mySVM.dat')
+    svm.save('mySVM.xml')
     pickle.dump([data, responses], open('mySVM.pickle', 'wb'))
 
 def getROIs(img):
@@ -93,6 +93,8 @@ def getROIs(img):
             out.append([masked, mask])
 
     return out
+
+trainSVM()
 
 #load support vector machine
 svm = cv2.ml.SVM_create()

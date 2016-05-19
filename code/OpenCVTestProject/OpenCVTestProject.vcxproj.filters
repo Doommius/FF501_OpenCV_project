@@ -27,12 +27,21 @@
     <ClCompile Include="SurfCam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Mort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="ANPR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenCVTestProject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ANPR.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

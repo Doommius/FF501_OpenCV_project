@@ -106,7 +106,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\mikke_000\Dropbox\SDU\FF501\repo\Automatic-Vehicle-Ticketing-System-Using-Computer-Vision-Techniques\code\OpenCVTestProject;C:\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -160,10 +160,13 @@
   <ItemGroup>
     <ClCompile Include="ANPR.cpp" />
     <ClCompile Include="Disco.cpp" />
+    <ClCompile Include="Mort.cpp" />
     <ClCompile Include="OpenCVTestProject.cpp" />
     <ClCompile Include="SurfCam.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ANPR.h" />
+    <ClInclude Include="Mort.h" />
     <ClInclude Include="OpenCVTestProject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

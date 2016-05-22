@@ -67,7 +67,42 @@ std::string negativeImagesPath[] = {
 	"..\\images\\negative\\DSC_0566_2.jpg"
 };
 
+std::string segmentImagesPath[] = {
+	"..\\images\\segments\\3732FWW_0.jpg",
+	"..\\images\\segments\\5445BSX_0.jpg",
+	"..\\images\\segments\\5445BSX_1.jpg",
+	"..\\images\\segments\\7215BGN_0.jpg",
+	"..\\images\\segments\\7215BGN_1.jpg",
+	"..\\images\\segments\\7215BGN_2.jpg",
+	"..\\images\\segments\\8995CCN_0.jpg",
+	"..\\images\\segments\\8995CCN_1.jpg",
+	"..\\images\\segments\\8995CCN_2.jpg",
+	"..\\images\\segments\\8995CCN_3.jpg",
+	"..\\images\\segments\\8995CCN_4.jpg",
+	"..\\images\\segments\\9588DWV_0.jpg",
+	"..\\images\\segments\\9588DWV_1.jpg",
+	"..\\images\\segments\\9588DWV_2.jpg",
+	"..\\images\\segments\\9588DWV_3.jpg",
+	"..\\images\\segments\\9773BNB_0.jpg",
+	"..\\images\\segments\\9773BNB_1.jpg",
+	"..\\images\\segments\\DSC_0562_0.jpg",
+	"..\\images\\segments\\DSC_0562_1.jpg",
+	"..\\images\\segments\\DSC_0566_0.jpg",
+	"..\\images\\segments\\DSC_0566_1.jpg",
+	"..\\images\\segments\\DSC_0566_2.jpg",
+	"..\\images\\segments\\2715DTZ_0.jpg",
+	"..\\images\\segments\\2715DTZ_1.jpg",
+	"..\\images\\segments\\2715DTZ_2.jpg",
+	"..\\images\\segments\\3028BYS_0.jpg",
+	"..\\images\\segments\\3028BYS_1.jpg",
+	"..\\images\\segments\\3154FFY_0.jpg",
+	"..\\images\\segments\\3154FFY_1.jpg",
+	"..\\images\\segments\\3154FFY_2.jpg",
+	"..\\images\\segments\\3266CNT_0.jpg"
+};
+
 
 const int baseImagesAmount = 12;
 const int positiveImagesAmount = 12;
 const int negativeImagesAmount = 19;
+const int segmentImagesAmount = 31;

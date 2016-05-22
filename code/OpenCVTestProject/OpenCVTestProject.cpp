@@ -112,20 +112,47 @@ int main(int argc, const char * argv[])
 	m.create();
 
 	Mat samples;
-	Mat labels(1, positiveImagesAmount, CV_32SC1);
+	Mat labels(1, positiveImagesAmount + negativeImagesAmount, CV_32SC1);
+
 	for (int i = 0; i < positiveImagesAmount; i++)
 	{
 		Mat img = imread(positiveImagesPath[i], IMREAD_GRAYSCALE);
 		vector<KeyPoint> kp = a.getKeypoints(img, 12);
-		Mat des = a.getDescriptors(img, kp); //
+		Mat des = a.getDescriptors(img, kp);
 		des = des.reshape(0, 1); //reshape to single row
 		samples.push_back(des); //add to results
-		drawKeypoints(img, kp, img, Scalar(0, 0, 255));
-		//imshow("img", img);
-		//while (true) if (waitKey(1) == 27) break;
+		labels.at<int>(i) = 1; //is a numberplate
+	}
+
+	for (int i = 0; i < negativeImagesAmount; i++)
+	{
+		Mat img = imread(negativeImagesPath[i], IMREAD_GRAYSCALE);
+		vector<KeyPoint> kp = a.getKeypoints(img, 12);
+		Mat des = a.getDescriptors(img, kp);
+		des = des.reshape(0, 1); //reshape to single row
+		samples.push_back(des); //add to results
+		labels.at<int>(positiveImagesAmount + i) = 0; //is not a numberplate
 	}
 
 	Ptr<TrainData> t = TrainData::create(samples, ROW_SAMPLE, labels);
+	cout << "trainAuto: " << m.machine->trainAuto(t, 10, SVM::getDefaultGrid(SVM::C),
+		SVM::getDefaultGrid(SVM::GAMMA),
+		SVM::getDefaultGrid(SVM::P),
+		SVM::getDefaultGrid(SVM::NU),
+		SVM::getDefaultGrid(SVM::COEF),
+		SVM::getDefaultGrid(SVM::DEGREE), false) << endl;
+
+	//now test the SVM
+	for (int i = 0; i < segmentImagesAmount; i++)
+	{
+		Mat img = imread(segmentImagesPath[i], IMREAD_GRAYSCALE);
+		vector<KeyPoint> kp = a.getKeypoints(img, 12);
+		Mat des = a.getDescriptors(img, kp);
+		des = des.reshape(0, 1); //reshape to single row
+		cout << segmentImagesPath[i] << ": " << m.machine->predict(des) << endl;
+	}
+
+	
 
 	return 0;
 }

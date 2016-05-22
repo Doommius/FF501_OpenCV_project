@@ -192,7 +192,7 @@ void createTraining() {
 }
 
 void machine() {	//http://docs.opencv.org/3.0-rc1/d1/d73/tutorial_introduction_to_svm.html
-	int vect_totalStuff.size();
+	int size = vect_totalStuff.size();
 
 	Mat labelsMat(numOfContours, 1, CV_32SC1, labels);
 	Ptr<SVM> svm = SVM::create();

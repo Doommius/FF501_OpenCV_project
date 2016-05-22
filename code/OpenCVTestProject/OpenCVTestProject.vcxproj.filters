@@ -33,6 +33,9 @@
     <ClCompile Include="ANPR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MySVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenCVTestProject.h">
@@ -42,6 +45,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ANPR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageLocations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MySVM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

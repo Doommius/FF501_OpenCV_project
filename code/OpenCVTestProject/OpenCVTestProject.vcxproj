@@ -163,11 +163,14 @@
     <ClCompile Include="Mort.cpp" />
     <ClCompile Include="OpenCVTestProject.cpp" />
     <ClCompile Include="SurfCam.cpp" />
+    <ClCompile Include="MySVM.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ANPR.h" />
+    <ClInclude Include="ImageLocations.h" />
     <ClInclude Include="Mort.h" />
     <ClInclude Include="OpenCVTestProject.h" />
+    <ClInclude Include="MySVM.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -19,22 +19,19 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/features2d.hpp>
 #include <opencv2/xfeatures2d.hpp>
+#include <opencv2/ml.hpp>
 
-//namespace in C++ is like package name in Java
 using namespace std;
 using namespace cv;
 using namespace cv::xfeatures2d;
+using namespace cv::ml;
 
-class ANPR
+class MySVM
 {
 public:
-	ANPR();
-	~ANPR();
-	Ptr<SURF> fd;
-	vector<Rect> segment(Mat);
-	vector<KeyPoint> getKeypoints(Mat, int);
-	Mat getDescriptors(Mat, vector<KeyPoint>);
-	void processImages();
-	//void exportTrainFile(vector<)
+	MySVM();
+	~MySVM();
+	Ptr<ml::SVM> machine;
+	void create();
 };
 

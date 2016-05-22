@@ -27,9 +27,9 @@ using namespace cv::ml;
 //Enter the alpha value [1.0-3.0]
 //Enter the beta value [0-100]
 void myContrastBrightness(Mat&, double, int);
-void getDescriptors();
-void createTraining();
-void machine();
+int getDescriptors();
+void createTraining(int s);
+void machine(int s);
 
 /* where the contours are located */
 //string dir1 = "imagesM\\1 (";
@@ -40,9 +40,7 @@ ofstream myfile;
 int num_features = 15;
 /*train*/
 const int numOfContours = 12;	//number of files
-int labels[numOfContours];
 int img_area = 64 * num_features;
-Mat training_mat(numOfContours, img_area, CV_32FC1);
 
 int testStart = 41;
 int testStop = 81/*numOfContours*/;
@@ -53,16 +51,21 @@ vector<vector<float>> vect_totalStuff;
 ///*testMikkel*/		//{ 12, 38, 39, 60, 61, 77, 78, 98, 99, 120, 122, 155, 175, 176, 208, 247, 278, 279 }
 ///*testMorteza*/		//{ 7, 13, 31, 42, 51, 62, 79, 92, 111, 157 }
 ///*testMM*/		//{ 4, 14, 24, 48, 59, 69, 87, 99, 127, 152, 167, 169, 182, 189, 220, 238, 249, 272, 282, 296, 349, 357, 367, 372, 394, 416, 424, 434, 446, 454, 475, 485, 502, 529, 543, 564, 581, 597, 619, 634, 647, 665, 691, 706, 712, 721, 747, 762, 768, 784, 796, 807, 830, 860, 876, 899, 918, 936, 988, 1011, 1018, 1038, 1049, 1061, 1143, 1144, 1155, 1168, 1182, 1196, 1201, 1211, 1229, 1238, 1255 }
+///*copy188*/			//{8, 19, 38, 50, 71, 90, 104, 120, 166, 183}
 
 int main(){
-	getDescriptors();
-	//machine();
+	myfile.open("train.txt");
+	int s = getDescriptors();
+	myfile << s << endl;
+	createTraining(s);
+	machine(s);
 	myfile.close();
 	return 0;                                         
 }
 
 /* Pictures are written to imagesMM */
-void getDescriptors() {
+int getDescriptors() {
+	int totalSize = 0;
 	ofstream w;
 	w.open(string("descriptors")+ string(".txt"));
 	//STEP 1: loading image
@@ -106,8 +109,9 @@ void getDescriptors() {
 			}
 		}
 
-		//STEP 9: drawing rectangles around contours
 		short i = 0;
+		//STEP 9: drawing rectangles around contours
+		i = 0;
 		for (Rect rect : boundRects) {
 			Mat rect_img = org_img.clone();
 			rectangle(rect_img, rect.tl(), rect.br(), Scalar(255, 0, 0), 2);
@@ -133,6 +137,7 @@ void getDescriptors() {
 				vect_keypoints[i].erase(vect_keypoints[i].begin() + num_features, vect_keypoints[i].end());
 				i++;
 			}
+			//del
 			else {
 				vect_keypoints.erase(vect_keypoints.begin() + i);
 				boundRects.erase(boundRects.begin() + i);
@@ -170,31 +175,71 @@ void getDescriptors() {
 			//w << endl;
 		}
 
-		//short k = 0;
-		//for (Mat& descs : vect_descriptors) {
-		//	k++;
-		//	short ii = 0;
-		//	for (int u = 0; u<descs.rows; u++) {
-		//		for (int j = 0; j < descs.cols; j++) {
-		//			training_mat.at<float>(k, ii++) = descs.at<float>(u, j);
-		//		}
-		//	}
-		//}
-		//myfile << training_mat << "\n";
+		/*short k = 0;
+		for (Mat& descs : vect_descriptors) {
+			k++;
+			short ii = 0;
+			for (int u = 0; u<descs.rows; u++) {
+				for (int j = 0; j < descs.cols; j++) {
+					training_mat.at<float>(k, ii++) = descs.at<float>(u, j);
+				}
+			}
+		}
+		myfile << training_mat << "\n";*/
 		
 		w << vect_totalStuff.size() << endl;
+
+		//del
+		//totalSize += vect_totalStuff.size();
+		//totalSize += boundRects.size();
 	}
 	w.close();
+	return totalSize;
 }
 
-void createTraining() {
+vector<int> labels;
+void createTraining(int s) {
+	cout << s << endl;
+	//int labels[s];
+	int posPlate[] = {8, 19, 38, 50, 71, 90, 104, 120, 166, 183};
 
+	for (int i = 1; i <= s; i++) {
+		if (find(begin(posPlate), end(posPlate), i) != end(posPlate)) {
+			//labels[i] = 1;
+			labels.push_back(1);
+		}
+		else {
+			//labels[i] = 0;
+			labels.push_back(0);
+		}
+	}
 }
 
-void machine() {	//http://docs.opencv.org/3.0-rc1/d1/d73/tutorial_introduction_to_svm.html
-	int size = vect_totalStuff.size();
+void machine(int s) {	//http://docs.opencv.org/3.0-rc1/d1/d73/tutorial_introduction_to_svm.html
+	Mat training_mat(s, img_area, CV_32FC1);
+	int j = 0;
+	int u = 0;
+	for (vector<float> total : vect_totalStuff) {
+		for (float tot : total) {
+			training_mat.at<float>(u, j) = tot;
+			j++;
+		}
+		u++;
+	}
 
-	Mat labelsMat(numOfContours, 1, CV_32SC1, labels);
+	/*for (int u = 0; u<descs.rows; u++) {
+		for (int j = 0; j < descs.cols; j++) {
+			training_mat.at<float>(k, ii++) = descs.at<float>(u, j);
+		}
+	}*/
+
+	Mat labelsMat(s, 1, CV_32SC1);
+	for (int i = 0; i<s; ++i){
+		labelsMat.at<int>(i) = labels.at(i);
+	}
+	//myfile << labelsMat << endl;
+	myfile << training_mat << endl;
+
 	Ptr<SVM> svm = SVM::create();
 	//Ptr<SVM> svm = StatModel::load<SVM>("mySVM.xml");
 

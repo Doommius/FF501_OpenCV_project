@@ -1,15 +1,1 @@
-train?: 1
-labelsMat row: 40
-1 0
-1 0
-1 1 oh baby! 
-1 0
-1 0
-1 0
-1 0
-1 0
-0 1
-0 1
-31 out of 40
-The training machine got 77.5% correct 
-results row: 40
+0

@@ -143,16 +143,51 @@ int main(int argc, const char * argv[])
 		SVM::getDefaultGrid(SVM::DEGREE), false) << endl;
 
 	//now test the SVM
-	for (int i = 0; i < segmentImagesAmount; i++)
+	/*for (int i = 0; i < segmentImagesAmount; i++)
 	{
 		Mat img = imread(segmentImagesPath[i], IMREAD_GRAYSCALE);
 		vector<KeyPoint> kp = a.getKeypoints(img, 12);
 		Mat des = a.getDescriptors(img, kp);
 		des = des.reshape(0, 1); //reshape to single row
 		cout << segmentImagesPath[i] << ": " << m.machine->predict(des) << endl;
-	}
+	}*/
 
-	
+	VideoCapture capture("C:\\Users\\mikke_000\\Desktop\\Nummerplader - edited\\Video_2.mp4");
+	Mat frame;
+	const int divFactor = 3;
+	while (true)
+	{
+		capture >> frame;
+
+		if (frame.empty()) break;
+
+		//resize the input frame a bit
+		resize(frame, frame, Size(1920 / divFactor, 1080 / divFactor));
+
+		Mat img; //the 'working' matrix, the frame should preferrably be left untouched
+		frame.copyTo(img);
+
+		vector<Rect> rects = a.segment(frame);
+
+		for (Rect rect : rects)
+		{
+			//draw each rectangle
+			vector<KeyPoint> kp = a.getKeypoints(frame(rect), 12);
+			Mat des = a.getDescriptors(img, kp);
+			des = des.reshape(0, 1); //reshape to single row
+			if (m.machine->predict(des) == 1)
+			{
+				rectangle(img, rect.tl(), rect.br(), Scalar(0, 255, 0));
+			}
+			else
+			{
+				rectangle(img, rect.tl(), rect.br(), Scalar(0, 0, 255));
+			}
+		}
+
+		imshow("video", img);
+		if (waitKey(1) == 27) break;
+	}
 
 	return 0;
 }

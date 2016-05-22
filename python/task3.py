@@ -21,9 +21,9 @@ def getDescriptors(img, mask):
 def trainSVM():
     global globalTrainedSVM
     #setup the SVM
-    svm = cv2.ml.SVM_create()
-    svm.setKernel(cv2.ml.SVM_RBF)
-    svm.setType(cv2.ml.SVM_C_SVC)
+    svm = cv2.SVM()
+    svm.setKernel(cv2.SVM_RBF)
+    svm.setType(cv2.SVM_C_SVC)
     svm.setGamma(0.05)
     svm.setC(2)
 

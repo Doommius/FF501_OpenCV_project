@@ -1,0 +1,36 @@
+
+Contours found: 4
+4
+
+Contours found: 3
+7
+
+Contours found: 3
+10
+
+Contours found: 3
+13
+
+Contours found: 2
+15
+
+Contours found: 5
+20
+
+Contours found: 2
+22
+
+Contours found: 5
+27
+
+Contours found: 5
+32
+
+Contours found: 2
+34
+
+Contours found: 3
+37
+
+Contours found: 2
+39

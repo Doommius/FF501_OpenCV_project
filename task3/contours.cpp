@@ -10,7 +10,8 @@
 using namespace std;
 using namespace cv;
 
-
+namespace contour
+{
 	const char* winName = "contour";
 	RNG rng(12345);
 
@@ -34,7 +35,7 @@ using namespace cv;
 			//do operations to the captured frame
 			cvtColor(frame, frame, CV_BGR2GRAY); //convert the color space to gray
 			GaussianBlur(frame, frame, Size(7, 7), 1.5); //do some blurring
-			Canny(frame, frame, 30, 90); //and then some edge detection
+			Canny(frame, frame, 30, 60); //and then some edge detection
 
 			vector<vector<Point> > contours; //variables to store the contour points
 			vector<Vec4i> hierarchy; //the hierarchy of the contours
@@ -49,12 +50,12 @@ using namespace cv;
 			{
 
 				//choose a random color
-				//Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-				Scalar color = Scalar(0, 255, 0);
-				drawContours(draw, contours, i, color, -1, 8, hierarchy);
+				Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+				drawContours(draw, contours, i, color, 8, 8, hierarchy);
 			}
 
 			imshow(winName, draw); //show the drawing
 			if (waitKey(1) == 27) break; //quit the program if the 'Esc' key is pressed (int code 27)
 		}
 	}
+}

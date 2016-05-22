@@ -10,17 +10,16 @@ using namespace std;
 using namespace cv;
 
 
-namespace task2
-{
+
 
 	RNG rng(12345);
 
 	const char* winName = "Image";
 	const char* trackbarName = "Image index";
 	string images[] = { "2715DTZ.jpg", "3028BYS.JPG", "3154FFY.JPG",
-						"3266CNT.JPG", "3732FWW.JPG", "5445BSX.JPG",
-						"7215BGN.JPG", "8995CCN.JPG", "9588DWV.jpg",
-						"9773BNB.jpg", "DSC_0562.jpg", "DSC_0566.jpg" };
+					   "3266CNT.JPG", "3732FWW.JPG", "5445BSX.JPG",
+					   "7215BGN.JPG", "8995CCN.JPG", "9588DWV.jpg",
+					   "9773BNB.jpg", "DSC_0562.jpg", "DSC_0566.jpg" };
 	const int imagesAmount = 12;
 	Mat image[imagesAmount];
 	Mat reference;
@@ -57,7 +56,7 @@ namespace task2
 
 			Mat rotMat = cv::getRotationMatrix2D(rect.center, rect.angle, 1);
 			cv::warpAffine(wg, dst, rotMat, dst.size(), cv::INTER_CUBIC);
-
+			
 			Mat cropped;
 			cv::Size rectSize = rect.size;
 			if (rect.angle < -45.) std::swap(rectSize.width, rectSize.height);
@@ -113,4 +112,3 @@ namespace task2
 	}
 
 
-}

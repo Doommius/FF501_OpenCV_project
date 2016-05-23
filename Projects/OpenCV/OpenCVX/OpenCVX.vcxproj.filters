@@ -36,6 +36,9 @@
     <ClCompile Include="Morteza.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MortezaTryLetter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="images\0.jpg">

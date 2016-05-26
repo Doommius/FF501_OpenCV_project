@@ -3,6 +3,7 @@
 ANPR::ANPR()
 {
 	ANPR::fd = SURF::create(400);
+	
 }
 
 vector<KeyPoint> ANPR::getKeypoints(Mat img, int max)
@@ -31,6 +32,9 @@ vector<Rect> ANPR::segment(Mat input)
 	Mat img;
 	input.copyTo(img);
 
+	int biAmount = 0;
+	//bilateralFilter(input, img, biAmount, biAmount * 2, biAmount / 2);
+
 	cvtColor(img, img, CV_BGR2GRAY); //convert to grayscale
 	//TODO: maybe do some filtering
 
@@ -42,8 +46,8 @@ vector<Rect> ANPR::segment(Mat input)
 	double lower = std::fmax(0, (1.0 - sigma) * mean);
 	double upper = std::fmin(255, (1.0 + sigma) * mean);
 
-	//threshold(img, img, 0, 255, THRESH_BINARY + THRESH_OTSU); //threshold the image
-	Canny(img, img, lower, upper);
+	threshold(img, img, 0, 255, THRESH_BINARY + THRESH_OTSU); //threshold the image
+	//Canny(img, img, lower, upper);
 
 	//Mat elm = getStructuringElement(MORPH_RECT, Size(17, 6)); //wide kernel
 	//morphologyEx(img, img, MORPH_CLOSE, elm); //morphological closure

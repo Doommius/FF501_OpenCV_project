@@ -49,7 +49,7 @@ void runVideo()
 
 	const int divFactor = 2;
 
-	VideoCapture capture("C:\\Users\\mikke_000\\Desktop\\Nummerplader - edited\\Video_2.mp4");
+	VideoCapture capture("C:\\Users\\mikke_000\\Desktop\\Nummerplader - edited\\video_3_1.mp4");
 	Mat frame;
 
 	if (!capture.isOpened())
@@ -109,52 +109,83 @@ int main(int argc, const char * argv[])
 	ANPR a;
 
 	MySVM m;
-	m.create();
 
-	Mat samples;
-	Mat labels(1, positiveImagesAmount + negativeImagesAmount, CV_32SC1);
+	bool train = false;
 
-	for (int i = 0; i < positiveImagesAmount; i++)
+	if (train)
 	{
-		Mat img = imread(positiveImagesPath[i], IMREAD_GRAYSCALE);
-		vector<KeyPoint> kp = a.getKeypoints(img, 12);
-		Mat des = a.getDescriptors(img, kp);
-		des = des.reshape(0, 1); //reshape to single row
-		samples.push_back(des); //add to results
-		labels.at<int>(i) = 1; //is a numberplate
+		Mat samples;
+		Mat labels(1, positivesAmount + negativesAmount, CV_32SC1);
+		for (int i = 0; i < positivesAmount; i++)
+		{
+			Mat img = imread(positivesPath[i], IMREAD_GRAYSCALE);
+			equalizeHist(img, img);
+			vector<KeyPoint> kp = a.getKeypoints(img, 12);
+			Mat des = a.getDescriptors(img, kp);
+			des = des.reshape(0, 1); //reshape to single row
+			samples.push_back(des); //add to results
+			labels.at<int>(i) = 1; //is a numberplate
+			cout << "pos: " << i << " = " << positivesPath[i] << endl;
+		}
+
+		for (int i = 0; i < negativesAmount; i++)
+		{
+			Mat img = imread(negativesPath[i], IMREAD_GRAYSCALE);
+			equalizeHist(img, img);
+			vector<KeyPoint> kp = a.getKeypoints(img, 12);
+			if (kp.size() != 12)
+			{
+				cout << "kp size != 12 for " << "neg: " << i << " = " << negativesPath[i] << endl;
+				continue;
+			}
+			Mat des = a.getDescriptors(img, kp);
+			des = des.reshape(0, 1); //reshape to single row
+			samples.push_back(des); //add to results
+			labels.at<int>(positivesAmount + i) = 0; //is not a numberplate
+			cout << "neg: " << i << " = " << negativesPath[i] << endl;
+		}
+
+		Ptr<TrainData> t = TrainData::create(samples, ROW_SAMPLE, labels);
+		m.create();
+	
+		cout << "trainAuto: " << m.machine->trainAuto(t, 10, SVM::getDefaultGrid(SVM::C),
+			SVM::getDefaultGrid(SVM::GAMMA),
+			SVM::getDefaultGrid(SVM::P),
+			SVM::getDefaultGrid(SVM::NU),
+			SVM::getDefaultGrid(SVM::COEF),
+			SVM::getDefaultGrid(SVM::DEGREE), true) << endl;
+
+		//calc error rate
+		Mat out;
+		cout << "Error: " << m.machine->calcError(t, true, out) << endl;
+
+		m.machine->save("detect_SVM.xml");
+	}
+	else
+	{
+		m.machine = SVM::create();
+		m.machine = SVM::load<SVM>("detect_SVM.xml");
 	}
 
-	for (int i = 0; i < negativeImagesAmount; i++)
-	{
-		Mat img = imread(negativeImagesPath[i], IMREAD_GRAYSCALE);
-		vector<KeyPoint> kp = a.getKeypoints(img, 12);
-		Mat des = a.getDescriptors(img, kp);
-		des = des.reshape(0, 1); //reshape to single row
-		samples.push_back(des); //add to results
-		labels.at<int>(positiveImagesAmount + i) = 0; //is not a numberplate
-	}
-
-	Ptr<TrainData> t = TrainData::create(samples, ROW_SAMPLE, labels);
-	cout << "trainAuto: " << m.machine->trainAuto(t, 10, SVM::getDefaultGrid(SVM::C),
-		SVM::getDefaultGrid(SVM::GAMMA),
-		SVM::getDefaultGrid(SVM::P),
-		SVM::getDefaultGrid(SVM::NU),
-		SVM::getDefaultGrid(SVM::COEF),
-		SVM::getDefaultGrid(SVM::DEGREE), false) << endl;
+	cout << "Trained: " << m.machine->isTrained();
 
 	//now test the SVM
-	/*for (int i = 0; i < segmentImagesAmount; i++)
+	for (int i = 0; i < segmentImagesAmount; i++)
 	{
 		Mat img = imread(segmentImagesPath[i], IMREAD_GRAYSCALE);
+		equalizeHist(img, img);
 		vector<KeyPoint> kp = a.getKeypoints(img, 12);
 		Mat des = a.getDescriptors(img, kp);
 		des = des.reshape(0, 1); //reshape to single row
 		cout << segmentImagesPath[i] << ": " << m.machine->predict(des) << endl;
-	}*/
+	}
 
-	VideoCapture capture("C:\\Users\\mikke_000\\Desktop\\Nummerplader - edited\\Video_2.mp4");
+	VideoCapture capture("C:\\Users\\mikke_000\\Desktop\\Nummerplader - edited\\video_3_1.mp4");
 	Mat frame;
-	const int divFactor = 3;
+	const int divFactor = 2;
+	int frameWidth = capture.get(CV_CAP_PROP_FRAME_WIDTH) / divFactor;
+	int frameHeight = capture.get(CV_CAP_PROP_FRAME_HEIGHT) / divFactor;
+	//VideoWriter videoOut("C:\\Users\\mikke_000\\Desktop\\Nummerplader - edited\\video_3_canny.avi", CV_FOURCC('M','J','P','G'), 30, Size(frameWidth, frameHeight));
 	while (true)
 	{
 		capture >> frame;
@@ -164,28 +195,36 @@ int main(int argc, const char * argv[])
 		//resize the input frame a bit
 		resize(frame, frame, Size(1920 / divFactor, 1080 / divFactor));
 
-		Mat img; //the 'working' matrix, the frame should preferrably be left untouched
-		frame.copyTo(img);
+		Mat img, dest; //the 'working' matrix, the frame should preferrably be left untouched
+		frame.copyTo(dest);
+		cvtColor(frame, img, CV_BGR2GRAY);
 
 		vector<Rect> rects = a.segment(frame);
 
 		for (Rect rect : rects)
 		{
+			if (rect.area() > frame.size().area() / 4 ) continue;
 			//draw each rectangle
-			vector<KeyPoint> kp = a.getKeypoints(frame(rect), 12);
-			Mat des = a.getDescriptors(img, kp);
-			des = des.reshape(0, 1); //reshape to single row
-			if (m.machine->predict(des) == 1)
+			Mat temp = img(rect);
+			equalizeHist(temp, temp);
+			vector<KeyPoint> kp = a.getKeypoints(temp, 12);
+			if (kp.size() == 12)
 			{
-				rectangle(img, rect.tl(), rect.br(), Scalar(0, 255, 0));
-			}
-			else
-			{
-				rectangle(img, rect.tl(), rect.br(), Scalar(0, 0, 255));
+				Mat des = a.getDescriptors(img, kp);
+				des = des.reshape(0, 1); //reshape to single row
+				if (m.machine->predict(des) == 1)
+				{
+					rectangle(dest, rect.tl(), rect.br(), Scalar(0, 255, 0));
+				}
+				else
+				{
+					rectangle(dest, rect.tl(), rect.br(), Scalar(0, 0, 255));
+				}
 			}
 		}
 
-		imshow("video", img);
+		//videoOut << dest;
+		imshow("video", dest);
 		if (waitKey(1) == 27) break;
 	}
 

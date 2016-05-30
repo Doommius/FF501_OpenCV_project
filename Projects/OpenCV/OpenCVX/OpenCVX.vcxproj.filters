@@ -13,25 +13,77 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Mik">
+      <UniqueIdentifier>{bb562e19-c014-4e7b-9c8f-f9693b4c98c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Old">
+      <UniqueIdentifier>{fdeca7aa-ace9-49d2-a237-a27016bbc2ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SVMSend.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Mik\ANPR.cpp">
+      <Filter>Source Files\Mik</Filter>
     </ClCompile>
-    <ClCompile Include="SVM.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Mik\Disco.cpp">
+      <Filter>Source Files\Mik</Filter>
+    </ClCompile>
+    <ClCompile Include="Mik\Mort.cpp">
+      <Filter>Source Files\Mik</Filter>
+    </ClCompile>
+    <ClCompile Include="Mik\MySVM.cpp">
+      <Filter>Source Files\Mik</Filter>
+    </ClCompile>
+    <ClCompile Include="Mik\OpenCVTestProject.cpp">
+      <Filter>Source Files\Mik</Filter>
+    </ClCompile>
+    <ClCompile Include="Mik\SurfCam.cpp">
+      <Filter>Source Files\Mik</Filter>
     </ClCompile>
     <ClCompile Include="1st_week.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Old</Filter>
     </ClCompile>
     <ClCompile Include="2nd_week.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Old</Filter>
     </ClCompile>
     <ClCompile Include="Morteza.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Old</Filter>
     </ClCompile>
     <ClCompile Include="MortezaTryLetter.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Old</Filter>
     </ClCompile>
+    <ClCompile Include="SVM.cpp">
+      <Filter>Source Files\Old</Filter>
+    </ClCompile>
+    <ClCompile Include="SVMSend.cpp">
+      <Filter>Source Files\Old</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR.cpp">
+      <Filter>Source Files\Mik</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Mik\ANPR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mik\ImageLocations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mik\Mort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mik\MySVM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mik\OpenCVTestProject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Mat type.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="trainedLettersSVM.xml" />
   </ItemGroup>
 </Project>

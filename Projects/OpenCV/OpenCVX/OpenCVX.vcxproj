@@ -81,7 +81,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\OpenCV\build\include;C:\OpenCV\build\include\opencv2;C:\OpenCV\my_build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\OpenCV\build\include;C:\OpenCV\build\include\opencv2;C:\OpenCV\my_build\include;C:\Users\zlyza\Source\Repos\Automatic-Vehicle-Ticketing-System-Using-Computer-Vision-Techniques\Projects\OpenCV\OpenCVX\Mik;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\OpenCV\my_build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -117,10 +117,30 @@
   <ItemGroup>
     <ClCompile Include="1st_week.cpp" />
     <ClCompile Include="2nd_week.cpp" />
+    <ClCompile Include="Mik\ANPR.cpp" />
+    <ClCompile Include="Mik\Disco.cpp" />
+    <ClCompile Include="Mik\Mort.cpp" />
+    <ClCompile Include="Mik\MySVM.cpp" />
+    <ClCompile Include="Mik\OpenCVTestProject.cpp" />
+    <ClCompile Include="Mik\SurfCam.cpp" />
     <ClCompile Include="Morteza.cpp" />
     <ClCompile Include="MortezaTryLetter.cpp" />
+    <ClCompile Include="OCR.cpp" />
     <ClCompile Include="SVM.cpp" />
     <ClCompile Include="SVMSend.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Mik\ANPR.h" />
+    <ClInclude Include="Mik\ImageLocations.h" />
+    <ClInclude Include="Mik\Mort.h" />
+    <ClInclude Include="Mik\MySVM.h" />
+    <ClInclude Include="Mik\OpenCVTestProject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Mat type.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="trainedLettersSVM.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

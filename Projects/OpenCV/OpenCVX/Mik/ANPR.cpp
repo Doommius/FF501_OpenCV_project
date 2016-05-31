@@ -87,24 +87,59 @@ vector<Rect> ANPR::segment(Mat input)
 	return out;
 }
 
+//http://answers.opencv.org/question/20012/sort-bounding-boxes-in-x-axis-of-a-image-in-order/
+bool compare_rect(const Rect & a, const Rect &b) {
+	return a.x < b.x;
+}
+
 vector<Mat> ANPR::segmentLetters(Mat input) {
+	//del
+	//int fileName = 0;
+
 	Mat img;
 	input.copyTo(img);
 
-	/* already gray */
-	//cvtColor(img, img, CV_BGR2GRAY);
+	//del
+	//imwrite("report\\" + to_string(fileName) + " input.png", img);
+	//fileName++;
+	//imshow("a", img);
 
-	//use adaptiveThreshold?
-	//adaptiveThreshold(img, img, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 13, 0);
-	threshold(img, img, 127, 255, THRESH_BINARY + THRESH_OTSU);
-	threshold(input, input, 127, 255, THRESH_BINARY + THRESH_OTSU);
-	//equalizeHist(img, img);
+	/* improve lighting */
+	//Enter the alpha value [1.0-3.0]
+	//Enter the beta value [0-100]
+	for (int y = 0; y < img.rows; y++) {
+		for (int x = 0; x < img.cols; x++) {
+			img.at<uchar>(y, x) = saturate_cast<uchar>(1.5*(img.at<uchar>(y, x)) + 30);
+			input.at<uchar>(y, x) = saturate_cast<uchar>(1.5*(input.at<uchar>(y, x)) + 30);
+		}
+	}
+
+	//del
+	//imwrite("report\\" + to_string(fileName) + " saturate.png", img);
+	//fileName++;
+	//imshow("aa", img);
+
+	//adaptiveThreshold(input, input, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 17, 0);
+	//medianBlur(input, input, 3);
+
+	threshold(img, img, 0, 255, THRESH_BINARY + THRESH_OTSU);
+	threshold(input, input, 0, 255, THRESH_BINARY + THRESH_OTSU);
+
+	//del
+	//imwrite("report\\" + to_string(fileName) + " threshold.png", input);
+	//fileName++;
+	//imshow("aaa", img);
 
 	double mean = *cv::mean(img).val;
 	double sigma = 0.33;
 	double lower = std::fmax(0, (1.0 - sigma) * mean);
 	double upper = std::fmin(255, (1.0 + sigma) * mean);
 	Canny(img, img, lower, upper);
+
+	//del
+	//imwrite("report\\" + to_string(fileName) + " canny.png", img);
+	//fileName++;
+	//imshow("aaaaa", img);
 
 	//find contours
 	vector<vector<Point>> contours;
@@ -113,17 +148,31 @@ vector<Mat> ANPR::segmentLetters(Mat input) {
 
 	vector<Rect> out;
 	vector<Mat> outMat;
-	for (int i = 0; i< contours.size(); i++)
-	{
-		if (contours[i].size() >= 1)
-		{
+	for (int i = 0; i< contours.size(); i++) {
+		if (contours[i].size() >= 1) {
 			Rect rect = boundingRect(Mat(contours[i]));
+			//cout << rect.area() << endl;
 			if (rect.area() > 150 && rect.area() < 800) {
-				Mat contourRegion = input(rect);
-				outMat.push_back(contourRegion);
+				//rectangle(input, rect.tl(), rect.br(), Scalar(0, 255, 0));
+				//imshow("fag", input);
+				out.push_back(rect);
 			}
 		}
 	}
+
+	//del
+	//imwrite("report\\" + to_string(fileName) + " contours.png", img);
+	//fileName++;
+	//imwrite("report\\" + to_string(fileName) + " boundingRectOnInput.png", input);
+	//fileName++;
+	//waitKey(0);
+
+	sort(out.begin(), out.end(), compare_rect);
+	for (Rect rect : out) {
+		Mat contourRegion = input(rect);
+		outMat.push_back(contourRegion);
+	}
+
 	return outMat;
 }
 

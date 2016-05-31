@@ -235,3 +235,5 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 /Projects/OpenCV/OpenCV/MatchTemp.cpp
+/Projects/OpenCV/OpenCVX/segments2
+/Projects/OpenCV/OpenCVX/report

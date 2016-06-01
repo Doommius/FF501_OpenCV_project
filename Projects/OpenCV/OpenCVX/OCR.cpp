@@ -42,16 +42,16 @@ ofstream myFile;
 const int numberOfLetterPics = 95;
 
 /* Temporary classification */
-int zero[] = { 23, 94 };
-int one[] = { 12, 30, 66 };
-int two[] = { 14, 22, 39, 48, 62, 92, 93 };
-int three[] = { 24, 31, 40, 49, 51 };
-int four[] = { 6, 26, 59, 60 };
-int five[] = { 11, 29, 58, 61, 65, 76, 86 };
-int six[] = { 37, 38, 91 };
-int seven[] = { 13, 50, 70 };
-int eight[] = { 3, 5, 21, 74, 84, 85 };
-int nine[] = { 4, 73, 75, 87 };
+//int zero[] = { 23, 94 };
+//int one[] = { 12, 30, 66 };
+//int two[] = { 14, 22, 39, 48, 62, 92, 93 };
+//int three[] = { 24, 31, 40, 49, 51 };
+//int four[] = { 6, 26, 59, 60 };
+//int five[] = { 11, 29, 58, 61, 65, 76, 86 };
+//int six[] = { 37, 38, 91 };
+//int seven[] = { 13, 50, 70 };
+//int eight[] = { 3, 5, 21, 74, 84, 85 };
+//int nine[] = { 4, 73, 75, 87 };
 
 
 int main(int argc, const char * argv[]){
@@ -151,7 +151,7 @@ int main(int argc, const char * argv[]){
 		SVM::getDefaultGrid(SVM::COEF),
 		SVM::getDefaultGrid(SVM::DEGREE), false) << endl;*/
 
-	//m.machine->save("trainedLettersSVM.xml");
+	m.machine->save("trainedLettersSVM.xml");
 	cout << "train?: " << m.machine->isTrained() << "\n";
 	//	 << endl;
 	/* test the SVM */	// a lot easier to compare 'labels' and 'results' Mats in Image Watch
@@ -203,13 +203,13 @@ int main(int argc, const char * argv[]){
 
 	//Mat testLetters;
 	string path = "segments2\\positive\\1 (";
-	for (int i = 0; i < 90; i++) {
-		String p = path + to_string(i * 10+1) + ").jpg";
+	for (int i = 0; i < 180; i++) {
+		String p = path + to_string(i * 5+1) + ").jpg";
 		cout << p << endl;
 		Mat img = imread(p, IMREAD_GRAYSCALE);
 		if (img.empty()) {
 			cout << "Could not open or find the image " << img << endl;
-			Sleep(1000000000);
+			//Sleep(1000000000);
 			continue;
 		}
 		vector<Mat> mats = a.segmentLetters(img);
@@ -232,7 +232,8 @@ int main(int argc, const char * argv[]){
 				plate += folderReal[n];
 			}
 		}
-		imwrite("report\\test\\" + to_string(fileName) + "_" + plate + ".png", img);
+		//imwrite("report\\test\\" + to_string(fileName) + "_" + plate + ".png", img);
+		//imwrite("report\\test\\"+ plate + ".png", img);
 		fileName++;
 	}
 	//testLetters.convertTo(testLetters, CV_32FC1);
@@ -240,7 +241,7 @@ int main(int argc, const char * argv[]){
 	//m.machine->predict(testLetters, testResult);
 
 	Mat outtt;
-	cout << m.machine->calcError(t, true, outtt) << endl;
+	//cout << m.machine->calcError(t, true, outtt) << endl;
 	/*int correctResults = 0;
 	for (int j = 0; j < testResult.rows; j++) {
 		if (testResult.at<int>(j) == labels.at<int>(j)) {
@@ -248,5 +249,6 @@ int main(int argc, const char * argv[]){
 		}
 	}
 	cout << correctResults << "/" << testResult.rows << " are correct!" << endl;*/
+	Sleep(1000000000);
 	myFile.close();
 }

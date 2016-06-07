@@ -2,8 +2,7 @@
 
 ANPR::ANPR()
 {
-	ANPR::fd = SURF::create(400);
-	
+	ANPR::fd = SURF::create(100, 4, 3, false);
 }
 
 vector<KeyPoint> ANPR::getKeypoints(Mat img, int max)
@@ -32,8 +31,8 @@ vector<Rect> ANPR::segment(Mat input)
 	Mat img;
 	input.copyTo(img);
 
-	int biAmount = 0;
-	//bilateralFilter(input, img, biAmount, biAmount * 2, biAmount / 2);
+	int biAmount = 21;
+	//	bilateralFilter(input, img, biAmount, biAmount * 2, biAmount / 2);
 
 	cvtColor(img, img, CV_BGR2GRAY); //convert to grayscale
 	//TODO: maybe do some filtering
@@ -46,8 +45,8 @@ vector<Rect> ANPR::segment(Mat input)
 	double lower = std::fmax(0, (1.0 - sigma) * mean);
 	double upper = std::fmin(255, (1.0 + sigma) * mean);
 
-	threshold(img, img, 0, 255, THRESH_BINARY + THRESH_OTSU); //threshold the image
-	//Canny(img, img, lower, upper);
+	//threshold(img, img, 0, 255, THRESH_BINARY + THRESH_OTSU); //threshold the image
+	Canny(img, img, lower, upper);
 
 	//Mat elm = getStructuringElement(MORPH_RECT, Size(17, 6)); //wide kernel
 	//morphologyEx(img, img, MORPH_CLOSE, elm); //morphological closure
@@ -66,7 +65,7 @@ vector<Rect> ANPR::segment(Mat input)
 	const double rmin = aspect - aspect * error;
 	const double rmax = aspect + aspect * error;
 
-	const double areaMin = 5000 / ((1920 * 1080) / input.size().area());
+	const double areaMin = 3000 / ((1920 * 1080) / input.size().area());
 	const double areaMax = 30000 / ((1920 * 1080) / input.size().area());
 
 	vector<Rect> out;
@@ -108,6 +107,96 @@ void ANPR::processImages()
 		}
 	}*/
 }
+
+//http://answers.opencv.org/question/20012/sort-bounding-boxes-in-x-axis-of-a-image-in-order/
+bool compare_rect(const Rect &a, const Rect &b) {
+	return a.x < b.x;
+}
+
+vector<Mat> ANPR::segmentLetters(Mat input) {
+	//del
+	//int fileName = 0;
+
+	Mat img;
+	input.copyTo(img);
+
+	//del
+	//imwrite("report\\" + to_string(fileName) + " input.png", img);
+	//fileName++;
+	//imshow("a", img);
+
+	/* improve lighting */
+	//Enter the alpha value [1.0-3.0]
+	//Enter the beta value [0-100]
+	for (int y = 0; y < img.rows; y++) {
+		for (int x = 0; x < img.cols; x++) {
+			img.at<uchar>(y, x) = saturate_cast<uchar>(1.5*(img.at<uchar>(y, x)) + 30);
+			input.at<uchar>(y, x) = saturate_cast<uchar>(1.5*(input.at<uchar>(y, x)) + 30);
+		}
+	}
+
+	//del
+	//imwrite("report\\" + to_string(fileName) + " saturate.png", img);
+	//fileName++;
+	//imshow("aa", img);
+
+	//adaptiveThreshold(input, input, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 17, 0);
+	//medianBlur(input, input, 3);
+
+	threshold(img, img, 0, 255, THRESH_BINARY + THRESH_OTSU);
+	threshold(input, input, 0, 255, THRESH_BINARY + THRESH_OTSU);
+
+	//del
+	//imwrite("report\\" + to_string(fileName) + " threshold.png", input);
+	//fileName++;
+	//imshow("aaa", img);
+
+	double mean = *cv::mean(img).val;
+	double sigma = 0.33;
+	double lower = std::fmax(0, (1.0 - sigma) * mean);
+	double upper = std::fmin(255, (1.0 + sigma) * mean);
+	Canny(img, img, lower, upper);
+
+	//del
+	//imwrite("report\\" + to_string(fileName) + " canny.png", img);
+	//fileName++;
+	//imshow("aaaaa", img);
+
+	//find contours
+	vector<vector<Point>> contours;
+	vector<Vec4i> hierarchy;
+	findContours(img, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+
+	vector<Rect> out;
+	vector<Mat> outMat;
+	for (int i = 0; i< contours.size(); i++) {
+		if (contours[i].size() >= 1) {
+			Rect rect = boundingRect(Mat(contours[i]));
+			//cout << rect.area() << endl;
+			if (rect.area() > 150 && rect.area() < 800) {
+				//rectangle(input, rect.tl(), rect.br(), Scalar(0, 255, 0));
+				//imshow("fag", input);
+				out.push_back(rect);
+			}
+		}
+	}
+
+	//del
+	//imwrite("report\\" + to_string(fileName) + " contours.png", img);
+	//fileName++;
+	//imwrite("report\\" + to_string(fileName) + " boundingRectOnInput.png", input);
+	//fileName++;
+	//waitKey(0);
+
+	sort(out.begin(), out.end(), compare_rect);
+	for (Rect rect : out) {
+		Mat contourRegion = input(rect);
+		outMat.push_back(contourRegion);
+	}
+
+	return outMat;
+}
+
 
 ANPR::~ANPR()
 {

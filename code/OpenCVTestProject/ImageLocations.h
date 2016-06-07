@@ -2197,5 +2197,5 @@ const int positiveImagesAmount = 12;
 const int negativeImagesAmount = 19;
 const int segmentImagesAmount = 31;
 const int imagesAmount = 515;
-const int positivesAmount = 471;
-const int negativesAmount = 1096;
+const int positivesAmount = 471 >> 3;
+const int negativesAmount = 1096 >> 3;

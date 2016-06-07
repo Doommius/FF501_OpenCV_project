@@ -30,11 +30,13 @@ class ANPR
 public:
 	ANPR();
 	~ANPR();
+	//Ptr<SURF> fd;
 	Ptr<SURF> fd;
 	vector<Rect> segment(Mat);
 	vector<KeyPoint> getKeypoints(Mat, int);
 	Mat getDescriptors(Mat, vector<KeyPoint>);
 	void processImages();
+	vector<Mat> segmentLetters(Mat input);
 	//void exportTrainFile(vector<)
 };
 
